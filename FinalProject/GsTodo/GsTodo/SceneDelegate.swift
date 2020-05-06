@@ -2,8 +2,8 @@
 //  SceneDelegate.swift
 //  GsTodo
 //
-//  Created by yamamototatsuya on 2020/01/15.
-//  Copyright © 2020 yamamototatsuya. All rights reserved.
+//  Created by NaokiKameyama on 2020/05/6.
+//  Copyright © 2020 NaokiKameyama. All rights reserved.
 //
 
 import UIKit

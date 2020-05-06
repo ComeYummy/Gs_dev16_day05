@@ -2,8 +2,8 @@
 //  UserDefaultsRepository.swift
 //  GsTodo
 //
-//  Created by Naoki Kameyama on 2020/05/06.
-//  Copyright © 2020 yamamototatsuya. All rights reserved.
+//  Created by NaokiKameyama on 2020/05/6.
+//  Copyright © 2020 NaokiKameyama. All rights reserved.
 //
 
 import Foundation
