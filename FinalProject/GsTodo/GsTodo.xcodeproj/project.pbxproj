@@ -18,6 +18,7 @@
 		67E03FAC23CEC8DD00B8220F /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E03FAA23CEC8DD00B8220F /* AddViewController.swift */; };
 		67E03FAD23CEC8DD00B8220F /* AddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67E03FAB23CEC8DD00B8220F /* AddViewController.xib */; };
 		67E03FB223CEFB6B00B8220F /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E03FB123CEFB6B00B8220F /* Task.swift */; };
+		C5954A332462D6FC00B008D3 /* UserDefaultsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5954A322462D6FC00B008D3 /* UserDefaultsRepository.swift */; };
 		E094E66B08DB6EEBFBEAD03E /* Pods_GsTodo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9AB653721F34E9BC81317D6 /* Pods_GsTodo.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		67E03FAB23CEC8DD00B8220F /* AddViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddViewController.xib; sourceTree = "<group>"; };
 		67E03FB123CEFB6B00B8220F /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		B9AB653721F34E9BC81317D6 /* Pods_GsTodo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GsTodo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5954A322462D6FC00B008D3 /* UserDefaultsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsRepository.swift; sourceTree = "<group>"; };
 		CBD66412238EBD6BC1DDF237 /* Pods-GsTodo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GsTodo.release.xcconfig"; path = "Pods/Target Support Files/Pods-GsTodo/Pods-GsTodo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,6 +114,7 @@
 			children = (
 				67E03F9623CEC75400B8220F /* AppDelegate.swift */,
 				67E03F9823CEC75400B8220F /* SceneDelegate.swift */,
+				C5954A312462D68200B008D3 /* Repositories */,
 				678EAB9023CF034E00FE4177 /* Models */,
 				675B63BD23CF040F00F9A5AC /* TaskListViewController */,
 				675B63BF23CF042700F9A5AC /* AddViewController */,
@@ -128,6 +131,14 @@
 				B9AB653721F34E9BC81317D6 /* Pods_GsTodo.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C5954A312462D68200B008D3 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				C5954A322462D6FC00B008D3 /* UserDefaultsRepository.swift */,
+			);
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,6 +262,7 @@
 				67E03F9723CEC75400B8220F /* AppDelegate.swift in Sources */,
 				67E03FB223CEFB6B00B8220F /* Task.swift in Sources */,
 				67E03FAC23CEC8DD00B8220F /* AddViewController.swift in Sources */,
+				C5954A332462D6FC00B008D3 /* UserDefaultsRepository.swift in Sources */,
 				67166CA223D0419F008EF0CA /* CustomCell.swift in Sources */,
 				67E03F9923CEC75400B8220F /* SceneDelegate.swift in Sources */,
 			);

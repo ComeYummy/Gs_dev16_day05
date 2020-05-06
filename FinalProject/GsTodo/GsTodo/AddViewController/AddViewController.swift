@@ -78,12 +78,12 @@ class AddViewController: UIViewController {
         if let index = selectIndex {
             // Edit
             tasks[index] = Task(title: title, memo: memoTextView.text)
-            saveToUserDefaults()
+            UserDefaultsRepository.saveToUserDefaults(tasks)
         } else {
             // Add
             let task = Task(title: title, memo: memoTextView.text)
             tasks.append(task)
-            saveToUserDefaults()
+            UserDefaultsRepository.saveToUserDefaults(tasks)
         }
         
         #warning("ここにHUD.flash の success を入れる")
@@ -92,16 +92,6 @@ class AddViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
 
-    func saveToUserDefaults() {
-        let encoder = JSONEncoder()
-        do {
-            let data = try encoder.encode(tasks)
-            UserDefaults.standard.set(data, forKey: userDefaultsTasksKey)
-        } catch {
-            print(error)
-        }
-    }
-    
     // アラートを表示するメソッド
     func showAlert(_ text: String){
         let alertController = UIAlertController(title: "エラー", message: text , preferredStyle: UIAlertController.Style.alert)

@@ -14,9 +14,6 @@ class TaskListViewController: UIViewController, UITableViewDelegate, UITableView
 
     // task情報の一覧。ここに全ての情報を保持しています！
     var tasks: [Task] = []
-
-    // UserDefaults に使うキー
-    let userDefaultsTasksKey = "user_tasks"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +38,7 @@ class TaskListViewController: UIViewController, UITableViewDelegate, UITableView
 
         print("👿viewWillAppearが呼ばれたよ")
         // UserDefaultsから読み出し
-        loadFromUserDefaults()
+        tasks = UserDefaultsRepository.loadFromUserDefaults()
         dump(tasks)
         reloadTableView()
     }
@@ -84,36 +81,11 @@ class TaskListViewController: UIViewController, UITableViewDelegate, UITableView
     #warning("ここにスワイプして削除する時の処理を入れる")
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         tasks.remove(at: indexPath.row)
-        saveToUserDefaults()
+        UserDefaultsRepository.saveToUserDefaults(tasks)
         reloadTableView()
     }
 
     func reloadTableView() {
         tableView.reloadData()
     }
-
-    #warning("UserDefaults の保存の処理")
-    func saveToUserDefaults() {
-        let encoder = JSONEncoder()
-        do {
-            let data = try encoder.encode(tasks)
-            UserDefaults.standard.set(data, forKey: userDefaultsTasksKey)
-        } catch {
-            print(error)
-        }
-    }
-
-    #warning("UserDefaults から読むこむ処理")
-    func loadFromUserDefaults() {
-        let decoder = JSONDecoder()
-        do {
-            guard let data = UserDefaults.standard.data(forKey: userDefaultsTasksKey) else {
-                return
-            }
-            tasks = try decoder.decode([Task].self, from: data)
-        } catch {
-            print(error)
-        }
-    }
-    
 }
