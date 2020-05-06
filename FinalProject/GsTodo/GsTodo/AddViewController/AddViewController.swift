@@ -12,48 +12,58 @@ import PKHUD
 
 class AddViewController: UIViewController {
     
-    
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var memoTextView: UITextView!
-    
+
+    // TaskListViewControllerからコピーしたtasks
+    var tasks: [Task] = []
     #warning("selectIndex を追加")
     var selectIndex: Int?
+
+    // UserDefaults に使うキー
+    let userDefaultsTasksKey = "user_tasks"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMemoTextView()
         setupNavigationBar()
-        
-        #warning("ここにEditかどうかの判定を入れる")
-        if let index = selectIndex {
-            title = "編集"
-            titleTextField.text = TaskCollection.shared.tasks[index].title
-            memoTextView.text = TaskCollection.shared.tasks[index].memo
-        }
+
+        // 編集のときTask内容を表示させる
+        configureTask()
     }
     
-    // MARK: Setup
-    fileprivate func setupMemoTextView() {
+    // MARK: - UISetup
+    private func setupMemoTextView() {
         memoTextView.layer.borderWidth = 1
         memoTextView.layer.borderColor = UIColor.lightGray.cgColor
         memoTextView.layer.cornerRadius = 3
     }
     
-    fileprivate func setupNavigationBar() {
+    private func setupNavigationBar() {
         title = "Add"
         let rightButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(tapSaveButton))
         navigationItem.rightBarButtonItem = rightButtonItem
     }
     
     
-    // MARK: Other Method
+    // MARK: - Other Method
+    #warning("ここにEditかどうかの判定を入れる")
+    private func configureTask() {
+        if let index = selectIndex {
+            title = "編集"
+            titleTextField.text = tasks[index].title
+            memoTextView.text = tasks[index].memo
+        }
+    }
+
     @objc func tapSaveButton() {
         print("Saveボタンを押したよ！")
         
         guard let title = titleTextField.text else {
             return
         }
-        
+
+        // titleが空白のときのエラー処理
         if title.isEmpty {
             print(title, "👿titleが空っぽだぞ〜")
             
@@ -67,18 +77,29 @@ class AddViewController: UIViewController {
         // ここで Edit か Add　かを判定している
         if let index = selectIndex {
             // Edit
-            let editTask = Task(title: title, memo: memoTextView.text)
-            TaskCollection.shared.editTask(task: editTask, index: index)
+            tasks[index] = Task(title: title, memo: memoTextView.text)
+            saveToUserDefaults()
         } else {
             // Add
             let task = Task(title: title, memo: memoTextView.text)
-            TaskCollection.shared.addTask(task)
+            tasks.append(task)
+            saveToUserDefaults()
         }
         
         #warning("ここにHUD.flash の success を入れる")
         HUD.flash(.success, delay: 0.3)
         // 前の画面に戻る
         navigationController?.popViewController(animated: true)
+    }
+
+    func saveToUserDefaults() {
+        let encoder = JSONEncoder()
+        do {
+            let data = try encoder.encode(tasks)
+            UserDefaults.standard.set(data, forKey: userDefaultsTasksKey)
+        } catch {
+            print(error)
+        }
     }
     
     // アラートを表示するメソッド
@@ -90,21 +111,3 @@ class AddViewController: UIViewController {
     }
     
 }
-
-
-
-
-// TODO: アクセス修飾子の説明。質問があったら。
-// private, public, internal(デフォルトではこれ)
-
-//
-//class Test {
-//    func showAddViewController() {
-//        let vc = AddViewController()
-//        vc.memoTextView
-//
-//        // private にしてみる
-//        vc.setupMemoTextView()
-//    }
-//
-//}

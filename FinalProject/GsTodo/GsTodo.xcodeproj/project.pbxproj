@@ -18,7 +18,6 @@
 		67E03FAC23CEC8DD00B8220F /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E03FAA23CEC8DD00B8220F /* AddViewController.swift */; };
 		67E03FAD23CEC8DD00B8220F /* AddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67E03FAB23CEC8DD00B8220F /* AddViewController.xib */; };
 		67E03FB223CEFB6B00B8220F /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E03FB123CEFB6B00B8220F /* Task.swift */; };
-		67E03FB423CEFB8100B8220F /* TaskCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E03FB323CEFB8100B8220F /* TaskCollection.swift */; };
 		E094E66B08DB6EEBFBEAD03E /* Pods_GsTodo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9AB653721F34E9BC81317D6 /* Pods_GsTodo.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,7 +36,6 @@
 		67E03FAA23CEC8DD00B8220F /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		67E03FAB23CEC8DD00B8220F /* AddViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddViewController.xib; sourceTree = "<group>"; };
 		67E03FB123CEFB6B00B8220F /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
-		67E03FB323CEFB8100B8220F /* TaskCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCollection.swift; sourceTree = "<group>"; };
 		B9AB653721F34E9BC81317D6 /* Pods_GsTodo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GsTodo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBD66412238EBD6BC1DDF237 /* Pods-GsTodo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GsTodo.release.xcconfig"; path = "Pods/Target Support Files/Pods-GsTodo/Pods-GsTodo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -63,7 +61,7 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		675B63BD23CF040F00F9A5AC /* TaskListPage */ = {
+		675B63BD23CF040F00F9A5AC /* TaskListViewController */ = {
 			isa = PBXGroup;
 			children = (
 				67E03F9A23CEC75400B8220F /* TaskListViewController.swift */,
@@ -71,23 +69,22 @@
 				67166CA023D0419F008EF0CA /* CustomCell.swift */,
 				67166CA123D0419F008EF0CA /* CustomCell.xib */,
 			);
-			path = TaskListPage;
+			path = TaskListViewController;
 			sourceTree = "<group>";
 		};
-		675B63BF23CF042700F9A5AC /* AddPage */ = {
+		675B63BF23CF042700F9A5AC /* AddViewController */ = {
 			isa = PBXGroup;
 			children = (
 				67E03FAA23CEC8DD00B8220F /* AddViewController.swift */,
 				67E03FAB23CEC8DD00B8220F /* AddViewController.xib */,
 			);
-			path = AddPage;
+			path = AddViewController;
 			sourceTree = "<group>";
 		};
 		678EAB9023CF034E00FE4177 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				67E03FB123CEFB6B00B8220F /* Task.swift */,
-				67E03FB323CEFB8100B8220F /* TaskCollection.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -116,8 +113,8 @@
 				67E03F9623CEC75400B8220F /* AppDelegate.swift */,
 				67E03F9823CEC75400B8220F /* SceneDelegate.swift */,
 				678EAB9023CF034E00FE4177 /* Models */,
-				675B63BD23CF040F00F9A5AC /* TaskListPage */,
-				675B63BF23CF042700F9A5AC /* AddPage */,
+				675B63BD23CF040F00F9A5AC /* TaskListViewController */,
+				675B63BF23CF042700F9A5AC /* AddViewController */,
 				67E03F9F23CEC75700B8220F /* Assets.xcassets */,
 				67E03FA123CEC75700B8220F /* LaunchScreen.storyboard */,
 				67E03FA423CEC75700B8220F /* Info.plist */,
@@ -252,7 +249,6 @@
 			files = (
 				67E03F9B23CEC75400B8220F /* TaskListViewController.swift in Sources */,
 				67E03F9723CEC75400B8220F /* AppDelegate.swift in Sources */,
-				67E03FB423CEFB8100B8220F /* TaskCollection.swift in Sources */,
 				67E03FB223CEFB6B00B8220F /* Task.swift in Sources */,
 				67E03FAC23CEC8DD00B8220F /* AddViewController.swift in Sources */,
 				67166CA223D0419F008EF0CA /* CustomCell.swift in Sources */,
